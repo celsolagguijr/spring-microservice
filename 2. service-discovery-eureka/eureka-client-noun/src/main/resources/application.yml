@@ -1,0 +1,36 @@
+spring:
+    application:
+        name: oztech-miscroservice-client-noun-app
+
+---
+
+eureka:
+    client:
+        serviceUrl:
+                defaultZone: http://localhost:8001/eureka/
+
+---
+
+words: boat,book,vote,seat,backpack,partition,groundhog
+
+---
+logging:
+    level:
+        org.springframework.cloud.config: DEBUG
+---
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "env"
+---
+## POST http://localhost:8080/actuator/refresh
+management:
+    endpoints:
+        web:
+            exposure:
+                include: refresh
+---
+server:
+    port: ${PORT:${SERVER_PORT:0}}

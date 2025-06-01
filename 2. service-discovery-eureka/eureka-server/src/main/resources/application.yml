@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: oztech-eureka-server-app
+---
+server:
+  port: 8001
+
+
