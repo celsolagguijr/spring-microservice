@@ -1,0 +1,29 @@
+spring:
+    application:
+        name: oztech-miscroservice-client1-app
+    config:
+        import: optional:configserver:http://localhost:8001
+        label: main
+    profiles:
+        active: default
+---
+logging:
+    level:
+        org.springframework.cloud.config: DEBUG
+---
+### http://localhost:8080/actuator/env
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "env"
+---
+## POST http://localhost:8080/actuator/refresh
+management:
+    endpoints:
+        web:
+            exposure:
+                include: refresh
+---
+server:
+    port: 8002
